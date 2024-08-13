@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  avr_build:
+    build: .
+    volumes:
+      - .:/usr/src/app
+      - /dev/bus/usb:/dev/bus/usb  # Pass USB devices to the container
+    privileged: true                # Necessary to access USB devices
+    working_dir: /usr/src/app
+    command: |
+      /bin/sh -c "
+      rm -rf build &&
+      mkdir -p build &&
+      cd build &&
+      cmake .. &&
+      make"
+
+  avr_flash:
+    extends:
+      service: avr_build
+    command: /bin/sh -c "cmake --build build --target flash"
