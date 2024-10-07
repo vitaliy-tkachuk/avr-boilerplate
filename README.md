@@ -12,7 +12,7 @@ This repository provides a boilerplate setup for developing, building, and flash
 
 **Clone the Repository**:
 ```bash
- git clone https://github.com/your-username/avr-boilerplate.git
+ git clone https://github.com/vitaliy-tkachuk/avr-boilerplate.git
  cd avr-boilerplate
 ```
 
